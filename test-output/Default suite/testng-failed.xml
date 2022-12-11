@@ -3,19 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tests.TestAddToWishListFunctionality">
+      <class name="tests.TestCreateAccount">
         <methods>
-          <include name="logOut"/>
-          <include name="updateWishList"/>
-          <include name="removeAllWishList"/>
           <include name="getDriver"/>
           <include name="tearDown"/>
-          <include name="addToWishListFromProductDetailPage"/>
-          <include name="addMoreThanOneToWishListByHoverProduct"/>
-          <include name="addToWishListByHoverProduct"/>
-          <include name="logIn"/>
+          <include name="CreateAccountWithExistingEmail"/>
+          <include name="CreatAccount"/>
+          <include name="CreateAccountButton"/>
         </methods>
-      </class> <!-- tests.TestAddToWishListFunctionality -->
+      </class> <!-- tests.TestCreateAccount -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

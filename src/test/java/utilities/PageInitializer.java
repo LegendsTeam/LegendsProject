@@ -1,6 +1,7 @@
 package utilities;
 
 import pages.CommonPage;
+import pages.CreateAccountPage;
 import pages.HomePage;
 import pages.LogInPage;
 import pages.MyWishListPage;
@@ -15,6 +16,7 @@ public class PageInitializer extends BaseClass {
 	public static WhatIsNewPage wp;
 	public static ProductDetailPage pp;
 	public static MyWishListPage mp;
+	public static CreateAccountPage cap;
 
 	public static void initialize() {
 		cp = new CommonPage();
@@ -23,7 +25,7 @@ public class PageInitializer extends BaseClass {
 		wp = new WhatIsNewPage();
 		pp = new ProductDetailPage();
 		mp = new MyWishListPage();
-
+		cap = new CreateAccountPage();
 	}
 
 }

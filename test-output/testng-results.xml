@@ -1,108 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="7" passed="7" failed="0" skipped="0">
+<testng-results ignored="2" total="3" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-12-07T14:58:51 EST" name="Default suite" finished-at="2022-12-07T15:00:17 EST" duration-ms="85237">
+  <suite started-at="2022-12-11T16:45:36 ACDT" name="Default suite" finished-at="2022-12-11T16:45:48 ACDT" duration-ms="12493">
     <groups>
-      <group name="noLogin">
-        <method signature="TestAddToWishListFunctionality.addToWishListBeforeSuccessfullyLogIn()[pri:-1, instance:tests.TestAddToWishListFunctionality@5c86a017]" name="addToWishListBeforeSuccessfullyLogIn" class="tests.TestAddToWishListFunctionality"/>
-      </group> <!-- noLogin -->
-      <group name="mustLogin">
-        <method signature="TestAddToWishListFunctionality.removeAllWishListBeforeStartTest()[pri:0, instance:tests.TestAddToWishListFunctionality@5c86a017]" name="removeAllWishListBeforeStartTest" class="tests.TestAddToWishListFunctionality"/>
-        <method signature="TestAddToWishListFunctionality.addToWishListFromProductDetailPage()[pri:1, instance:tests.TestAddToWishListFunctionality@5c86a017]" name="addToWishListFromProductDetailPage" class="tests.TestAddToWishListFunctionality"/>
-        <method signature="TestAddToWishListFunctionality.addToWishListByHoverProduct()[pri:2, instance:tests.TestAddToWishListFunctionality@5c86a017]" name="addToWishListByHoverProduct" class="tests.TestAddToWishListFunctionality"/>
-        <method signature="TestAddToWishListFunctionality.removeAllWishList()[pri:3, instance:tests.TestAddToWishListFunctionality@5c86a017]" name="removeAllWishList" class="tests.TestAddToWishListFunctionality"/>
-        <method signature="TestAddToWishListFunctionality.addMoreThanOneToWishListByHoverProduct()[pri:4, instance:tests.TestAddToWishListFunctionality@5c86a017]" name="addMoreThanOneToWishListByHoverProduct" class="tests.TestAddToWishListFunctionality"/>
-        <method signature="TestAddToWishListFunctionality.updateWishList()[pri:5, instance:tests.TestAddToWishListFunctionality@5c86a017]" name="updateWishList" class="tests.TestAddToWishListFunctionality"/>
-      </group> <!-- mustLogin -->
     </groups>
-    <test started-at="2022-12-07T14:58:51 EST" name="Default test" finished-at="2022-12-07T15:00:17 EST" duration-ms="85237">
-      <class name="tests.TestAddToWishListFunctionality">
-        <test-method is-config="true" signature="getDriver()[pri:0, instance:tests.TestAddToWishListFunctionality@5c86a017]" started-at="2022-12-07T14:58:51 EST" name="getDriver" finished-at="2022-12-07T14:58:58 EST" duration-ms="6476" status="PASS">
+    <test started-at="2022-12-11T16:45:36 ACDT" name="Default test" finished-at="2022-12-11T16:45:48 ACDT" duration-ms="12493">
+      <class name="tests.TestCreateAccount">
+        <test-method is-config="true" signature="getDriver()[pri:0, instance:tests.TestCreateAccount@60f00693]" started-at="2022-12-11T16:45:36 ACDT" name="getDriver" finished-at="2022-12-11T16:45:45 ACDT" duration-ms="9058" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getDriver -->
-        <test-method signature="addToWishListBeforeSuccessfullyLogIn()[pri:-1, instance:tests.TestAddToWishListFunctionality@5c86a017]" started-at="2022-12-07T14:58:58 EST" name="addToWishListBeforeSuccessfullyLogIn" finished-at="2022-12-07T14:59:02 EST" duration-ms="4311" status="PASS">
+        <test-method is-config="true" signature="CreatAccount()[pri:0, instance:tests.TestCreateAccount@60f00693]" started-at="2022-12-11T16:45:45 ACDT" name="CreatAccount" finished-at="2022-12-11T16:45:45 ACDT" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- addToWishListBeforeSuccessfullyLogIn -->
-        <test-method is-config="true" signature="logIn()[pri:0, instance:tests.TestAddToWishListFunctionality@5c86a017]" started-at="2022-12-07T14:59:02 EST" name="logIn" finished-at="2022-12-07T14:59:06 EST" duration-ms="4037" status="PASS">
+        </test-method> <!-- CreatAccount -->
+        <test-method is-config="true" signature="CreateAccountButton()[pri:0, instance:tests.TestCreateAccount@60f00693]" started-at="2022-12-11T16:45:45 ACDT" name="CreateAccountButton" finished-at="2022-12-11T16:45:46 ACDT" duration-ms="1117" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- logIn -->
-        <test-method signature="removeAllWishListBeforeStartTest()[pri:0, instance:tests.TestAddToWishListFunctionality@5c86a017]" started-at="2022-12-07T14:59:06 EST" name="removeAllWishListBeforeStartTest" finished-at="2022-12-07T14:59:10 EST" duration-ms="3870" status="PASS">
+        </test-method> <!-- CreateAccountButton -->
+        <test-method signature="CreateAccountWithExistingEmail()[pri:2, instance:tests.TestCreateAccount@60f00693]" started-at="2022-12-11T16:45:46 ACDT" name="CreateAccountWithExistingEmail" finished-at="2022-12-11T16:45:48 ACDT" duration-ms="2287" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- removeAllWishListBeforeStartTest -->
-        <test-method is-config="true" signature="logOut()[pri:0, instance:tests.TestAddToWishListFunctionality@5c86a017]" started-at="2022-12-07T14:59:10 EST" name="logOut" finished-at="2022-12-07T14:59:12 EST" duration-ms="1706" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- logOut -->
-        <test-method is-config="true" signature="logIn()[pri:0, instance:tests.TestAddToWishListFunctionality@5c86a017]" started-at="2022-12-07T14:59:12 EST" name="logIn" finished-at="2022-12-07T14:59:16 EST" duration-ms="3815" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- logIn -->
-        <test-method signature="addToWishListFromProductDetailPage()[pri:1, instance:tests.TestAddToWishListFunctionality@5c86a017]" started-at="2022-12-07T14:59:16 EST" name="addToWishListFromProductDetailPage" finished-at="2022-12-07T14:59:20 EST" duration-ms="4595" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- addToWishListFromProductDetailPage -->
-        <test-method is-config="true" signature="logOut()[pri:0, instance:tests.TestAddToWishListFunctionality@5c86a017]" started-at="2022-12-07T14:59:20 EST" name="logOut" finished-at="2022-12-07T14:59:22 EST" duration-ms="1501" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- logOut -->
-        <test-method is-config="true" signature="logIn()[pri:0, instance:tests.TestAddToWishListFunctionality@5c86a017]" started-at="2022-12-07T14:59:22 EST" name="logIn" finished-at="2022-12-07T14:59:26 EST" duration-ms="3845" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- logIn -->
-        <test-method signature="addToWishListByHoverProduct()[pri:2, instance:tests.TestAddToWishListFunctionality@5c86a017]" started-at="2022-12-07T14:59:26 EST" name="addToWishListByHoverProduct" finished-at="2022-12-07T14:59:29 EST" duration-ms="3533" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- addToWishListByHoverProduct -->
-        <test-method is-config="true" signature="logOut()[pri:0, instance:tests.TestAddToWishListFunctionality@5c86a017]" started-at="2022-12-07T14:59:29 EST" name="logOut" finished-at="2022-12-07T14:59:31 EST" duration-ms="1724" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- logOut -->
-        <test-method is-config="true" signature="logIn()[pri:0, instance:tests.TestAddToWishListFunctionality@5c86a017]" started-at="2022-12-07T14:59:31 EST" name="logIn" finished-at="2022-12-07T14:59:35 EST" duration-ms="3529" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- logIn -->
-        <test-method signature="removeAllWishList()[pri:3, instance:tests.TestAddToWishListFunctionality@5c86a017]" started-at="2022-12-07T14:59:35 EST" name="removeAllWishList" finished-at="2022-12-07T14:59:40 EST" duration-ms="5512" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- removeAllWishList -->
-        <test-method is-config="true" signature="logOut()[pri:0, instance:tests.TestAddToWishListFunctionality@5c86a017]" started-at="2022-12-07T14:59:40 EST" name="logOut" finished-at="2022-12-07T14:59:42 EST" duration-ms="1594" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- logOut -->
-        <test-method is-config="true" signature="logIn()[pri:0, instance:tests.TestAddToWishListFunctionality@5c86a017]" started-at="2022-12-07T14:59:42 EST" name="logIn" finished-at="2022-12-07T14:59:45 EST" duration-ms="3477" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- logIn -->
-        <test-method signature="addMoreThanOneToWishListByHoverProduct()[pri:4, instance:tests.TestAddToWishListFunctionality@5c86a017]" started-at="2022-12-07T14:59:45 EST" name="addMoreThanOneToWishListByHoverProduct" finished-at="2022-12-07T15:00:02 EST" duration-ms="17062" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- addMoreThanOneToWishListByHoverProduct -->
-        <test-method is-config="true" signature="logOut()[pri:0, instance:tests.TestAddToWishListFunctionality@5c86a017]" started-at="2022-12-07T15:00:02 EST" name="logOut" finished-at="2022-12-07T15:00:04 EST" duration-ms="1858" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- logOut -->
-        <test-method is-config="true" signature="logIn()[pri:0, instance:tests.TestAddToWishListFunctionality@5c86a017]" started-at="2022-12-07T15:00:04 EST" name="logIn" finished-at="2022-12-07T15:00:08 EST" duration-ms="3819" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- logIn -->
-        <test-method signature="updateWishList()[pri:5, instance:tests.TestAddToWishListFunctionality@5c86a017]" started-at="2022-12-07T15:00:08 EST" name="updateWishList" finished-at="2022-12-07T15:00:15 EST" duration-ms="6897" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- updateWishList -->
-        <test-method is-config="true" signature="logOut()[pri:0, instance:tests.TestAddToWishListFunctionality@5c86a017]" started-at="2022-12-07T15:00:15 EST" name="logOut" finished-at="2022-12-07T15:00:16 EST" duration-ms="1589" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- logOut -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.TestAddToWishListFunctionality@5c86a017]" started-at="2022-12-07T15:00:16 EST" name="tearDown" finished-at="2022-12-07T15:00:17 EST" duration-ms="341" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- tests.TestAddToWishListFunctionality -->
+        </test-method> <!-- CreateAccountWithExistingEmail -->
+      </class> <!-- tests.TestCreateAccount -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
