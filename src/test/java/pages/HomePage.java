@@ -38,25 +38,13 @@ public class HomePage {
 	@FindBy(xpath = "//*[@class = 'cart-empty']")
 	public WebElement emptyCartText;
 	
-	
-	
-	
-	
-	
-	
-	
 	public void headerBarSelect(String menu) {
 		for(WebElement eachElement : headerMenu) {
 			if(eachElement.getText().trim().equalsIgnoreCase(menu)) {
 				eachElement.click();
 				break;
-			}
-			
+			}		
 		}
 	}
-	
-	
-	
-	
-
+  
 }
