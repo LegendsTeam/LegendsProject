@@ -17,14 +17,6 @@ public class HomePage {
 	@FindBy(xpath = "//*[@class='panel header']/ul/li/a")
 	public List<WebElement> headerMenu;
 	
-	
-	
-	
-	
-	
-	
-	
-	
 	public void headerBarSelect(String menu) {
 		for(WebElement eachElement : headerMenu) {
 			if(eachElement.getText().trim().equalsIgnoreCase(menu)) {
