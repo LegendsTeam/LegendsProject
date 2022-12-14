@@ -2,10 +2,16 @@ package pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
-import utilities.PageInitializer;
+import utilities.BaseClass;
 
-public class CreateAccountPage extends PageInitializer {
+public class CreateAccountPage  {
+	
+	public CreateAccountPage() {
+		
+	PageFactory.initElements(BaseClass.getDriver(),this);
+} 
 	
 	@FindBy(xpath="/html/body/div[2]/header/div[1]/div/ul/li[3]")
 	public WebElement CreateAccountButton;
@@ -22,10 +28,10 @@ public class CreateAccountPage extends PageInitializer {
 	@FindBy(xpath="//*[@id='email_address']")
 	public WebElement email;
 	
-	@FindBy(xpath="//*[@id='password")
+	@FindBy(xpath="//*[@id='password']")
 	public WebElement password;
 	
-	@FindBy(xpath="//*[@id='password-confirmation")
+	@FindBy(xpath="//*[@id='password-confirmation']")
 	public WebElement confirmPassword;
 	
 	@FindBy(xpath="//*[@class='action submit primary']")
