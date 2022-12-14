@@ -96,6 +96,7 @@ public class CommonMethod extends PageInitializer {
 	 * String
 	 */
 	public static void sendKey(WebElement element, String text) {
+		highLightElementMethod(element);
 		element.clear();
 		element.sendKeys(text);
 	}
@@ -105,6 +106,7 @@ public class CommonMethod extends PageInitializer {
 	 * 
 	 */
 	public static void click(WebElement element) {
+		highLightElementMethod(element);
 		waitForClickability(element).click();
 	}
 
@@ -263,6 +265,14 @@ public class CommonMethod extends PageInitializer {
 			
 		}
 	}
+	
+	public static void selectItem(WebElement element,String item) {
+
+        Select sec = new Select(element);
+        sec.selectByVisibleText(item);
+    
+        
+    }
 
  
 	
