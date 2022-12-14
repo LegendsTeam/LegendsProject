@@ -1,18 +1,27 @@
 package tests;
 
+
+import java.util.Locale;
+
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import utilities.BaseClass;
+import com.github.javafaker.Faker;
+import com.github.javafaker.service.FakeValuesService;
+import com.github.javafaker.service.RandomService;
+
 import utilities.CommonMethod;
-public class TestCreateAccount extends CommonMethod{
+
+public class TestCreateAccount extends CommonMethod{	
+	FakeValuesService fakeValuesService = new FakeValuesService(new Locale("en-GB"), new RandomService());
+    
+    String email = fakeValuesService.bothify("????##@gmail.com");
+    Faker fake = new Faker();
+    String firstName = fake.name().firstName();
+    String lastName= fake.name().lastName();
 	
-@BeforeClass
-	public void CreatAccount() {		
-		BaseClass.getDriver();
-		}
+	
 @BeforeMethod
 	public void CreateAccountButton() {
 		click(cap.CreateAccountButton);
@@ -20,23 +29,25 @@ public class TestCreateAccount extends CommonMethod{
 	}
 @Test (priority=1)
 public void CreateAccount()  {
-	cap.fistName.sendKeys(getProperty("firstName"));
-//	sendKey(cap.fistName, getProperty("firstName"));
-	cap.lastName.sendKeys(getProperty("lastName"));
-//	sendKey(cap.lastName, getProperty("lastName"));
-	cap.email.sendKeys(getProperty("email"));
-//	sendKey(cap.email, getProperty("email"));
+	
+	cap.fistName.sendKeys(firstName);
+	cap.lastName.sendKeys(lastName);
+	cap.email.sendKeys(email);
 	cap.password.sendKeys(getProperty("Npassword"));
-//	sendKey(cap.password, getProperty("Npassword"));
-//	sendKey(cap.confirmPassword, getProperty("Npassword"));
 	cap.confirmPassword.sendKeys(getProperty("Npassword"));
 	click(cap.createAnAccountButton);
+	Assert.assertTrue(cap.CreateNewAccountConfirmText.getText().contains(getProperty("AccountCreatedConfirmText")));
+	cap.downArrowTriangle.click();
+	cap.signOutButton.click();
+
+
 }
 @Test(priority=2)
 public void CreateAccountWithExistingEmail()  {
-	cap.fistName.sendKeys(getProperty("firstName"));
-	cap.lastName.sendKeys(getProperty("lastName"));
-	cap.email.sendKeys(getProperty("email"));
+	click(cap.CreateAccountButton);
+	cap.fistName.sendKeys(firstName);
+	cap.lastName.sendKeys(lastName);
+	cap.email.sendKeys(email);
 	cap.password.sendKeys(getProperty("Npassword"));
 	cap.confirmPassword.sendKeys(getProperty("Npassword"));
 	click(cap.createAnAccountButton);	

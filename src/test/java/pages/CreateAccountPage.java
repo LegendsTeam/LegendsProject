@@ -17,6 +17,15 @@ public class CreateAccountPage {
 	@FindBy(xpath="//*[@id=\"maincontent\"]/div[1]")
 	public WebElement CreateNewAccountText;
 	
+	@FindBy(xpath="//*[@class='message-success success message']")
+	public WebElement CreateNewAccountConfirmText;
+	
+	@FindBy(css="body > div.page-wrapper > header > div.panel.wrapper > div > ul > li.customer-welcome > span")
+	public WebElement downArrowTriangle;
+	
+	@FindBy(xpath="/html/body/div[2]/header/div[1]/div/ul/li[2]/div/ul/li[3]/a")
+	public WebElement signOutButton;
+	
 	@FindBy(xpath="//*[@id=\"firstname\"]")
 	public WebElement fistName;
 	
