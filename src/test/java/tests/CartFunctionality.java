@@ -32,7 +32,7 @@ public class CartFunctionality extends CommonMethod{
 		sendKey(hp.ChangeQuantity, getProperty("number"));
 		click(hp.addToCart);
 		int itemIncartAfter = Integer.parseInt(pp.itemInCart.getText());
-		Assert.assertEquals(itemIncartAfter, itemIncartBefore+1);
+		Assert.assertEquals(itemIncartAfter, itemIncartBefore + getProperty("number"));
 		
 	}
 	@Test(enabled = true, priority = 3, groups = "AddToCart")
