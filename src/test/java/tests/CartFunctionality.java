@@ -1,7 +1,6 @@
 package tests;
 
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -9,6 +8,7 @@ import utilities.CommonMethod;
 
 public class CartFunctionality extends CommonMethod{
 	
+	@BeforeMethod
 	public void logIn() {
 		hp.headerBarSelect("Sign In");
 		sendKey(lp.usernameInputField, getProperty("username"));
@@ -32,7 +32,7 @@ public class CartFunctionality extends CommonMethod{
 		sendKey(hp.ChangeQuantity, getProperty("number"));
 		click(hp.addToCart);
 		int itemIncartAfter = Integer.parseInt(pp.itemInCart.getText());
-		Assert.assertEquals(itemIncartAfter, itemIncartBefore + getProperty("number"));
+		Assert.assertEquals(itemIncartAfter, itemIncartBefore + Integer.parseInt(getProperty("number")));
 		
 	}
 	@Test(enabled = true, priority = 3, groups = "AddToCart")
