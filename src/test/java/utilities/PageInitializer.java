@@ -4,6 +4,7 @@ package utilities;
 import pages.AddressPage;
 import pages.AccountPage;
 import pages.CommonPage;
+import pages.CreateAccountPage;
 import pages.HomePage;
 import pages.LogInPage;
 import pages.MyWishListPage;
@@ -21,6 +22,7 @@ public class PageInitializer extends BaseClass {
 	
 	public static AccountPage ca;
 	public static AddressPage cb;
+	public static CreateAccountPage cap;
 
 
 	public static void initialize() {
@@ -32,7 +34,7 @@ public class PageInitializer extends BaseClass {
 		mp = new MyWishListPage();
 		ca = new AccountPage();
 		cb = new AddressPage();
-
+		cap = new CreateAccountPage();
 
 	}
 
