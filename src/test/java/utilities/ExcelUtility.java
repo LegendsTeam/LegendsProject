@@ -88,8 +88,9 @@ public class ExcelUtility {
 		// This data needs to be written (Object[])
 		Map<Integer, Object[]> orderHistory = new TreeMap<Integer, Object[]>();
 
+		int numColum = headerRoll.size();
+		int cellIndex = 0;
 		for (int i = 0; i < allRoll.size(); i++) {
-			int numColum = headerRoll.size();
 
 			// Order # Date Ship To Order Total Status Action
 			if (i == 0) {
@@ -101,7 +102,6 @@ public class ExcelUtility {
 
 			} else {
 				Object[] obj1 = new Object[numColum];
-				int cellIndex = 0;
 				for (int j = 0; j < numColum; j++) {
 					obj1[j] =  allCell.get(cellIndex +j).getText();
 				}
