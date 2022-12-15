@@ -25,8 +25,8 @@ public class EditAccountTest extends CommonMethod {
         click(ep.switchButton);
         cp.customerMenuSelect(0);
         click(ep.editButton);
-        sendKey(ep.firstName,getProperty("firstname"));
-        sendKey(ep.lastName,getProperty("lastname"));
+        sendKey(ep.firstName,getProperty("firstName"));
+        sendKey(ep.lastName,getProperty("lastName"));
 		click(ep.saveButton);
         System.out.println(ep.passMessage.getText( ));
         click(cp.customerMenuToggle);
@@ -44,8 +44,8 @@ public class EditAccountTest extends CommonMethod {
         click(ep.changeEmail);
         sendKey(ep.email,getProperty("username"));
         sendKey(ep.currentPassword,getProperty("password"));
-        sendKey(ep.firstName,getProperty("firstname"));
-        sendKey(ep.lastName,getProperty("lastname"));
+        sendKey(ep.firstName,getProperty("firstName"));
+        sendKey(ep.lastName,getProperty("lastName"));
         click(ep.saveButton);
         System.out.println(ep.passMessage.getText( ));
 
