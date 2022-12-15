@@ -1,6 +1,7 @@
 package tests;
 
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import utilities.CommonMethod;
 
@@ -26,6 +27,7 @@ public class TestEditAccount extends CommonMethod {
         sendKey(ep.firstName,getProperty("firstName"));
         sendKey(ep.lastName,getProperty("lastName"));
 		click(ep.saveButton);
+        Assert.assertEquals("You saved the account information.", ep.passMessage.getText());
         System.out.println(ep.passMessage.getText( ));
         click(cp.customerMenuToggle);
         cp.customerMenuSelect(2);
@@ -45,6 +47,7 @@ public class TestEditAccount extends CommonMethod {
         sendKey(ep.firstName,getProperty("firstName"));
         sendKey(ep.lastName,getProperty("lastName"));
         click(ep.saveButton);
+        Assert.assertEquals("You saved the account information.", ep.passMessage.getText());
         System.out.println(ep.passMessage.getText( ));
 
     }
@@ -60,6 +63,7 @@ public class TestEditAccount extends CommonMethod {
         sendKey(ep.newPassword,getProperty("password"));
         sendKey(ep.conFirmnewPassword,getProperty("password"));
         click(ep.saveButton);
+        Assert.assertEquals("You saved the account information.", ep.passMessage.getText());
         System.out.println(ep.passMessage.getText( ));
 
     }
