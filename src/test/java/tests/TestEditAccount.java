@@ -2,11 +2,9 @@ package tests;
 
 
 import org.testng.annotations.Test;
-import org.testng.annotations.Test;
-
 import utilities.CommonMethod;
 
-public class EditAccountTest extends CommonMethod {
+public class TestEditAccount extends CommonMethod {
 	
 	
 	public void logIn() {
