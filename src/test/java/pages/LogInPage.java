@@ -24,7 +24,7 @@ public class LogInPage {
 	@FindBy(xpath = "//*[@class='action create primary']")
 	public WebElement createAccountButton;
 	
-	@FindBy(xpath = "//*[@data-bind='html: $parent.prepareMessageForHtml(message.text)']")
+	@FindBy(xpath = "//*[@class='message-error error message']")
 	public WebElement errorMessages;
 	
 	

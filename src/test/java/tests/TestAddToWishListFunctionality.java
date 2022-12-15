@@ -1,5 +1,7 @@
 package tests;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -24,8 +26,8 @@ public class TestAddToWishListFunctionality extends CommonMethod {
 		topBarSelect("What's New");
 		click(wp.productList.get(0));
 		click(pp.addToWishListLink);
-		String currentURL = getDriver().getCurrentUrl();
-		Assert.assertTrue(currentURL.contains("login"));
+		String expectErrorMessage = "You must login or register to add items to your wishlist.";
+		AssertJUnit.assertEquals(expectErrorMessage, lp.errorMessages.getText());
 
 	}
 	
@@ -47,7 +49,7 @@ public class TestAddToWishListFunctionality extends CommonMethod {
 		topBarSelect("What's New");
 		click(wp.productList.get(0));
 		click(pp.addToWishListLink);
-		Assert.assertEquals(mp.getNumberOfProductsInWishList(), 1);
+		AssertJUnit.assertEquals(mp.getNumberOfProductsInWishList(), 1);
 	
 	}
 	
@@ -55,7 +57,7 @@ public class TestAddToWishListFunctionality extends CommonMethod {
 	public void addToWishListByHoverProduct() {
 		topBarSelect("What's New");
 		wp.addToWishListByHoverOver(2);
-		Assert.assertEquals(mp.getNumberOfProductsInWishList(), 2);
+		AssertJUnit.assertEquals(mp.getNumberOfProductsInWishList(), 2);
 	}
 	
 	@Test(enabled = true, priority = 3, groups = "mustLogin", retryAnalyzer = utilities.RetryAnalyzer.class)
@@ -65,7 +67,7 @@ public class TestAddToWishListFunctionality extends CommonMethod {
 		mp.deletingAllProductFromWishList();
 		String expectedText = "You have no items in your wish list.";
 		String actualText = mp.emptyWishListMessage.getText();
-		Assert.assertEquals(actualText, expectedText);
+		AssertJUnit.assertEquals(actualText, expectedText);
 		
 	}
 	
@@ -76,7 +78,7 @@ public class TestAddToWishListFunctionality extends CommonMethod {
 		wp.addingNProductstoWishList(numOfProduct);
 		click(cp.customerMenuToggle);
 		cp.customerMenuSelect(1);
-		Assert.assertEquals(mp.getNumberOfProductsInWishList(), numOfProduct);
+		AssertJUnit.assertEquals(mp.getNumberOfProductsInWishList(), numOfProduct);
 	}
 	
 	@Test(enabled = true, priority = 5, groups = "mustLogin", retryAnalyzer = utilities.RetryAnalyzer.class)
@@ -86,8 +88,7 @@ public class TestAddToWishListFunctionality extends CommonMethod {
 		mp.editingWistList(0);
 		pp.selectSizeAndColor("XS", "White");
 		click(pp.updateWishListLink);
-		String currentURL = getDriver().getCurrentUrl();
-		Assert.assertTrue(currentURL.contains("wishlist"));
+		AssertJUnit.assertTrue(mp.successMessage.getText().contains("has been updated in your Wish List"));
 	}
 	
 	@AfterMethod(enabled = true, onlyForGroups = "mustLogin")

@@ -1,5 +1,7 @@
 package tests;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -43,7 +45,7 @@ public class TestMyAccountListAddressBooks extends CommonMethod {
 		String expectedmessage =getProperty("expectedMessage");
 		String actualmessage =cb.SaveMessage.getText();
 		System.out.println(actualmessage);
-	    Assert.assertEquals(actualmessage,expectedmessage );
+	    AssertJUnit.assertEquals(actualmessage,expectedmessage );
 	   
 		
 		
@@ -64,7 +66,7 @@ public class TestMyAccountListAddressBooks extends CommonMethod {
 		String Billing= cb.DefaultBillingAdress.getText();
 		String Shipping= cb.DefaultShippingAddress.getText();
 		System.out.println(Billing + Shipping);
-		Assert.assertEquals(Billing, Shipping);
+		AssertJUnit.assertEquals(Billing, Shipping);
 	
 
 	}
@@ -95,7 +97,7 @@ public class TestMyAccountListAddressBooks extends CommonMethod {
 		String newexpectedmessage =getProperty("expectedMessage");
 		String newactualmessage =cb.SaveMessage.getText();
 		System.out.println(newactualmessage);
-	    Assert.assertEquals(newactualmessage,newexpectedmessage );
+	    AssertJUnit.assertEquals(newactualmessage,newexpectedmessage );
 		
 			
         String newbilling =cb.afternewAddBillingDefilt.getText();

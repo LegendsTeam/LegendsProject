@@ -74,7 +74,7 @@ public class BaseClass {
 
 	}
 
-	@AfterClass(enabled = false)
+	@AfterClass(enabled = true)
 	public static void tearDown() {
 
 		if (driver != null) {

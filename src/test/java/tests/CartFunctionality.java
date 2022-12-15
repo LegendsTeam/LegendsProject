@@ -1,5 +1,7 @@
 package tests;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -22,7 +24,7 @@ public class CartFunctionality extends CommonMethod {
 		pp.selectSizeAndColor("XS", "Blue");
 		click(hp.addToCart);
 		int itemIncartAfter = Integer.parseInt(pp.itemInCart.getText());
-		Assert.assertEquals(itemIncartAfter, 1);
+		AssertJUnit.assertEquals(itemIncartAfter, 1);
 	}
 
 	@Test(enabled = true, priority = 2, groups = "AddToCart", retryAnalyzer = utilities.RetryAnalyzer.class)
@@ -32,7 +34,7 @@ public class CartFunctionality extends CommonMethod {
 		sendKey(hp.ChangeQuantity, getProperty("number"));
 		click(hp.addToCart);
 		int itemIncartAfter = Integer.parseInt(pp.itemInCart.getText());
-		Assert.assertEquals(itemIncartAfter, itemIncartBefore + Integer.parseInt(getProperty("number")));
+		AssertJUnit.assertEquals(itemIncartAfter, itemIncartBefore + Integer.parseInt(getProperty("number")));
 
 	}
 
@@ -41,7 +43,7 @@ public class CartFunctionality extends CommonMethod {
 		click(hp.MyCart);
 		click(hp.ViewCart);
 		click(hp.RemoveFromCart);
-		Assert.assertTrue(hp.emptyCartText.getText().contains("no items"));
+		AssertJUnit.assertTrue(hp.emptyCartText.getText().contains("no items"));
 
 	}
 
