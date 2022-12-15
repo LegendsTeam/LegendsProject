@@ -8,7 +8,7 @@ import utilities.CommonMethod;
 
 public class CartFunctionality extends CommonMethod{
 	
-	@BeforeMethod
+	
 	public void logIn() {
 		hp.headerBarSelect("Sign In");
 		sendKey(lp.usernameInputField, getProperty("username"));
