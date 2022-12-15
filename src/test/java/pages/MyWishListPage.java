@@ -30,6 +30,11 @@ public class MyWishListPage {
 	@FindBy(xpath = "//*[@class='message info empty']/span")
 	public WebElement emptyWishListMessage;
 	
+	@FindBy(xpath = "//*[@class='message-success success message']")
+	public WebElement successMessage;
+	
+	
+	
 	
 	
 	
