@@ -5,7 +5,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import utilities.BaseClass;
-import utilities.CommonMethod;
 
 public class AccountPage{
 	
@@ -34,5 +33,9 @@ public class AccountPage{
 	
 	@FindBy(xpath = "/html/body/div[2]/header/div[1]/div/ul/li[2]/div/ul/li[3]/a")
 	public WebElement signoutButton;
+	
+	@FindBy(xpath = "//*[@class='nav items']/li[2]")
+	public WebElement myOrderButton;
+
 	
 }

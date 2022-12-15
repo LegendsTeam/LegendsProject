@@ -30,7 +30,6 @@ public class CommonPage {
 
 	public void customerMenuSelect(int index) {
 		customerMenu.get(index).click();
-
 	}
 
 	

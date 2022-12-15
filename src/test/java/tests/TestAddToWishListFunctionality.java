@@ -3,10 +3,12 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import utilities.CommonMethod;
 
+@Listeners(utilities.ListenerTestNG.class)
 public class TestAddToWishListFunctionality extends CommonMethod {
 
 	@BeforeMethod(enabled = true, onlyForGroups = "mustLogin")
@@ -17,7 +19,7 @@ public class TestAddToWishListFunctionality extends CommonMethod {
 		click(lp.loginButton);
 	}
 	
-	@Test(enabled = true, priority = -1, groups = "noLogin")
+	@Test(enabled = true, priority = -1, groups = "noLogin", retryAnalyzer = utilities.RetryAnalyzer.class)
 	public void addToWishListBeforeSuccessfullyLogIn() {
 		topBarSelect("What's New");
 		click(wp.productList.get(0));
@@ -27,7 +29,7 @@ public class TestAddToWishListFunctionality extends CommonMethod {
 
 	}
 	
-	@Test(enabled = true, priority = 0, groups = "mustLogin")
+	@Test(enabled = true, priority = 0, groups = "mustLogin", retryAnalyzer = utilities.RetryAnalyzer.class)
 	public void removeAllWishListBeforeStartTest() {
 		try {
 			click(cp.customerMenuToggle);
@@ -35,12 +37,12 @@ public class TestAddToWishListFunctionality extends CommonMethod {
 			mp.deletingAllProductFromWishList();
 		} catch (Exception e) {
 			System.out.println("There is product in wish list before test start");
-//			e.printStackTrace();
+			e.printStackTrace();
 		}
 
 	}
 	
-	@Test(enabled = true, priority = 1, groups = "mustLogin")
+	@Test(enabled = true, priority = 1, groups = "mustLogin", retryAnalyzer = utilities.RetryAnalyzer.class)
 	public void addToWishListFromProductDetailPage() {
 		topBarSelect("What's New");
 		click(wp.productList.get(0));
@@ -49,14 +51,14 @@ public class TestAddToWishListFunctionality extends CommonMethod {
 	
 	}
 	
-	@Test(enabled = true, priority = 2, groups = "mustLogin")
+	@Test(enabled = true, priority = 2, groups = "mustLogin", retryAnalyzer = utilities.RetryAnalyzer.class)
 	public void addToWishListByHoverProduct() {
 		topBarSelect("What's New");
 		wp.addToWishListByHoverOver(2);
 		Assert.assertEquals(mp.getNumberOfProductsInWishList(), 2);
 	}
 	
-	@Test(enabled = true, priority = 3, groups = "mustLogin")
+	@Test(enabled = true, priority = 3, groups = "mustLogin", retryAnalyzer = utilities.RetryAnalyzer.class)
 	public void removeAllWishList() {
 		click(cp.customerMenuToggle);
 		cp.customerMenuSelect(1);
@@ -67,7 +69,7 @@ public class TestAddToWishListFunctionality extends CommonMethod {
 		
 	}
 	
-	@Test(enabled = true, priority = 4, groups = "mustLogin")
+	@Test(enabled = true, priority = 4, groups = "mustLogin", retryAnalyzer = utilities.RetryAnalyzer.class)
 	public void addMoreThanOneToWishListByHoverProduct() {
 		topBarSelect("What's New");
 		int numOfProduct = 4;
@@ -77,7 +79,7 @@ public class TestAddToWishListFunctionality extends CommonMethod {
 		Assert.assertEquals(mp.getNumberOfProductsInWishList(), numOfProduct);
 	}
 	
-	@Test(enabled = true, priority = 5, groups = "mustLogin")
+	@Test(enabled = true, priority = 5, groups = "mustLogin", retryAnalyzer = utilities.RetryAnalyzer.class)
 	public void updateWishList() {
 		click(cp.customerMenuToggle);
 		cp.customerMenuSelect(1);

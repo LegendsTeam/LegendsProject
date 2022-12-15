@@ -1,13 +1,15 @@
 package utilities;
 
 
-import pages.AddressPage;
 import pages.AccountPage;
+import pages.AddressPage;
 import pages.CommonPage;
 import pages.CreateAccountPage;
+import pages.EditAccountPage;
 import pages.HomePage;
 import pages.LogInPage;
 import pages.MyWishListPage;
+import pages.OrderPage;
 import pages.ProductDetailPage;
 import pages.WhatIsNewPage;
 
@@ -19,10 +21,11 @@ public class PageInitializer extends BaseClass {
 	public static WhatIsNewPage wp;
 	public static ProductDetailPage pp;
 	public static MyWishListPage mp;
-	
 	public static AccountPage ca;
 	public static AddressPage cb;
 	public static CreateAccountPage cap;
+	public static EditAccountPage ep;
+	public static OrderPage op;
 
 
 	public static void initialize() {
@@ -35,6 +38,8 @@ public class PageInitializer extends BaseClass {
 		ca = new AccountPage();
 		cb = new AddressPage();
 		cap = new CreateAccountPage();
+		ep = new EditAccountPage();
+		op = new OrderPage();
 
 	}
 
