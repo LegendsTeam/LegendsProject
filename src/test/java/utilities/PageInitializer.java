@@ -3,11 +3,13 @@ package utilities;
 
 import pages.AccountPage;
 import pages.AddressPage;
+import pages.CheckoutPage;
 import pages.CommonPage;
 import pages.CreateAccountPage;
 import pages.EditAccountPage;
 import pages.HomePage;
 import pages.LogInPage;
+import pages.MenProductPage;
 import pages.MyWishListPage;
 import pages.OrderPage;
 import pages.ProductDetailPage;
@@ -26,6 +28,8 @@ public class PageInitializer extends BaseClass {
 	public static CreateAccountPage cap;
 	public static EditAccountPage ep;
 	public static OrderPage op;
+	public static MenProductPage mpp;
+	public static CheckoutPage cop;
 
 
 	public static void initialize() {
@@ -40,6 +44,8 @@ public class PageInitializer extends BaseClass {
 		cap = new CreateAccountPage();
 		ep = new EditAccountPage();
 		op = new OrderPage();
+		mpp = new MenProductPage();
+		cop = new CheckoutPage();
 
 	}
 
