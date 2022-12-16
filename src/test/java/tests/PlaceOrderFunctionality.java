@@ -1,5 +1,6 @@
 package tests;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -17,6 +18,7 @@ public class PlaceOrderFunctionality extends CommonMethod {
 	}
 	@Test(enabled = true, priority = 1, groups = "must_login")
 	public void PlaceOrder() throws InterruptedException {
+		
 		hoverOver(cp.topMenu.get(2));
 		hoverOver(cp.menTopMenu);
 		click(cp.menJackets);
@@ -30,6 +32,13 @@ public class PlaceOrderFunctionality extends CommonMethod {
 		click(cp.clickNextButton);
 		click(cp.sameShippingAndBillingAddress);
 		click(cp.clickPlaceOrder);
+		String expectedResult = "success";
+		
+		
+		Assert.assertTrue(driver.getCurrentUrl().contains(expectedResult));
+		
+		
+		
 	}
 	@Test(enabled = true, priority = 3)
 	public void viewAndPrintOrder() {
@@ -51,6 +60,11 @@ public class PlaceOrderFunctionality extends CommonMethod {
 		click(cp.clickPlaceOrder);
 	}
 	
+	@AfterMethod(enabled = true, onlyForGroups = "mustLogin")
+	public void logOut() {
+		click(cp.customerMenuToggle);
+		cp.customerMenuSelect(2);
+	}
 	
 	
 	

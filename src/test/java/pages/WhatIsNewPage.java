@@ -37,19 +37,19 @@ public class WhatIsNewPage {
 	 * This method use for addind n products to wish list
 	 */
 
-	public void addingNProductstoWishList(int numOfProduct) {
+//	public void addingNProductstoWishList(int numOfProduct) {
+//
+//		try {
+//
+//			for (int i = 0; i < numOfProduct; i++) {
+//				addToWishListByHoverOver(i);
+//				CommonMethod.topBarSelect("What's New");
+//			}
+//
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 
-		try {
-
-			for (int i = 0; i < numOfProduct; i++) {
-				addToWishListByHoverOver(i);
-				CommonMethod.topBarSelect("What's New");
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-	}
+//	}
 
 }
