@@ -23,9 +23,16 @@ public class OrderPage {
 	@FindBy(xpath = "//*[@id='my-orders-table']/tbody/tr/td")
 	public List<WebElement> allCell;
 	
-	
 	@FindBy(id = "limiter")
 	public WebElement seleclPerPage;
 
+	@FindBy(xpath = "//*[@class='action order']")
+	public WebElement clickOnReorder;
+	
+	@FindBy(xpath = "//*[@id='my-orders-table']/tbody/tr/td/a[1]")
+	public List<WebElement> viewOrder;
+	
+	@FindBy(xpath = "//*[@class='items order-links']/li")
+	public WebElement itemOrder;
 
 }

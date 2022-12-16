@@ -22,6 +22,15 @@ public class CommonPage {
 
 	@FindBy(xpath = "//*[@class='customer-welcome active']/div/ul/li")
 	public List<WebElement> customerMenu;
+	
+	@FindBy(xpath = "//*[@class='level-top ui-corner-all']")
+	public List<WebElement> topMenu;
+	
+	@FindBy(xpath = "//*[@class='level1 nav-3-1 category-item first parent ui-menu-item']/a")
+	public WebElement menTopMenu;
+	
+	@FindBy(xpath = "//*[@class='header content']/a]")
+	public WebElement homepageLink;
 
 	/*
 	 * This method use for click customer menu by index 0 ===> My Account 1 ===> My

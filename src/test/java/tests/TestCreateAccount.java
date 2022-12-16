@@ -1,5 +1,7 @@
 package tests;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.util.Locale;
 
 import org.testng.Assert;
@@ -23,7 +25,7 @@ public class TestCreateAccount extends CommonMethod{
 @BeforeMethod
 	public void CreateAccountButton() {
 		cap.CreateAccountButton.click();;
-		Assert.assertTrue(cap.CreateNewAccountText.getText().contains(getProperty("NactualCreateAccountText")));
+		AssertJUnit.assertTrue(cap.CreateNewAccountText.getText().contains(getProperty("NactualCreateAccountText")));
 	}
 @Test (priority=1)
 public void CreateAccount()  {
@@ -34,7 +36,7 @@ public void CreateAccount()  {
 	cap.password.sendKeys(getProperty("Npassword"));
 	cap.confirmPassword.sendKeys(getProperty("Npassword"));
 	click(cap.createAnAccountButton);
-	Assert.assertTrue(cap.CreateNewAccountConfirmText.getText().contains(getProperty("AccountCreatedConfirmText")));
+	AssertJUnit.assertTrue(cap.CreateNewAccountConfirmText.getText().contains(getProperty("AccountCreatedConfirmText")));
 	cap.downArrowTriangle.click();
 	cap.signOutButton.click();
 
@@ -50,7 +52,7 @@ public void CreateAccountWithExistingEmail()  {
 	cap.confirmPassword.sendKeys(getProperty("Npassword"));
 	click(cap.createAnAccountButton);	
 	System.out.println("The text is " +cap.existAccountText.getText());
-	Assert.assertTrue(cap.existAccountText.getText().contains(getProperty("alreadyExistText")));
+	AssertJUnit.assertTrue(cap.existAccountText.getText().contains(getProperty("alreadyExistText")));
 }
 @Test
 public void CreateAccountWithWrongEmail()  {
@@ -60,6 +62,6 @@ public void CreateAccountWithWrongEmail()  {
 	cap.password.sendKeys(getProperty("Npassword"));
 	cap.confirmPassword.sendKeys(getProperty("Npassword"));
 	click(cap.createAnAccountButton);
-	Assert.assertTrue(cap.wrongEmailText.getText().contains(getProperty("wrongEmailText")));
+	AssertJUnit.assertTrue(cap.wrongEmailText.getText().contains(getProperty("wrongEmailText")));
 }
 }

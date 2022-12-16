@@ -3,6 +3,7 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.annotations.Test;
 import utilities.CommonMethod;
 
 public class TestEditAccount extends CommonMethod {

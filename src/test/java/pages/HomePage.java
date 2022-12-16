@@ -28,8 +28,8 @@ public class HomePage {
 	
 	@FindBy(xpath = "//*[@class='action showcart']")
 	public WebElement MyCart;
-	
-	@FindBy(xpath = "//*[@class = 'action viewcart']")
+	//*[@class = 'action viewcart']
+	@FindBy(xpath = "/html/body/div[2]/header/div[2]/div[1]/a") 
 	public WebElement ViewCart;
 	
 	@FindBy(xpath = "//*[@class = 'action action-delete']")
@@ -37,6 +37,9 @@ public class HomePage {
 	
 	@FindBy(xpath = "//*[@class = 'cart-empty']")
 	public WebElement emptyCartText;
+	
+	@FindBy(xpath = "//*[@class='action primary checkout']")
+	public WebElement proceedToCheckout;
 	
 	public void headerBarSelect(String menu) {
 		for(WebElement eachElement : headerMenu) {
