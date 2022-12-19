@@ -5,6 +5,7 @@ import java.util.List;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import utilities.BaseClass;
 import utilities.CommonMethod;
@@ -47,22 +48,17 @@ public class MyWishListPage {
 	 */
 	
 	public int getNumberOfProductsInWishList() {
-		String numOfProductsInWishList = numOfProductInWishList.getText();
-		return  Integer.parseInt(numOfProductsInWishList.substring(0, numOfProductsInWishList.indexOf(" ")));
-	}
-	
-	/*
-	 * This method use for removing products from wish list by index
-	 */
-	
-	public void deletingAllProductFromWishList() {
-		if(removeWishListIcon.size() != 0) {
-			for(int i = removeWishListIcon.size() - 1; i >= 0; i--) {
-				CommonMethod.hoverOver(myWishListProducts.get(i));
-				removeWishListIcon.get(i).click();
-			}	
+		try {
+			String numOfProductsInWishList = numOfProductInWishList.getText();
+			return  Integer.parseInt(numOfProductsInWishList.substring(0, numOfProductsInWishList.indexOf(" ")));
+			
+		} catch (Exception e) {
+			return 0;
 		}
 	}
+	
+	
+	
 	
 	/*
 	 * This method use for editing any product wish list by index

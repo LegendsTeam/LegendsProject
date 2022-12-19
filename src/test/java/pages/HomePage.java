@@ -24,16 +24,16 @@ public class HomePage {
 	public WebElement addToCart;
 	
 	@FindBy(xpath = "//*[@id='qty']")
-	public WebElement ChangeQuantity;
+	public WebElement changeQuantity;
 	
 	@FindBy(xpath = "//*[@class='action showcart']")
 	public WebElement MyCart;
 	//*[@class = 'action viewcart']
-	@FindBy(xpath = "/html/body/div[2]/header/div[2]/div[1]/a") 
-	public WebElement ViewCart;
+	@FindBy(xpath = "//*[@class='actions']/div/a") 
+	public WebElement viewCart;
 	
 	@FindBy(xpath = "//*[@class = 'action action-delete']")
-	public WebElement RemoveFromCart;
+	public WebElement removeFromCart;
 	
 	@FindBy(xpath = "//*[@class = 'cart-empty']")
 	public WebElement emptyCartText;

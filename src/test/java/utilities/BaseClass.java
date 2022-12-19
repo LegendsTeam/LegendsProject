@@ -76,7 +76,7 @@ public class BaseClass {
 
 	@AfterClass(enabled = true)
 	public static void tearDown() {
-
+	
 		if (driver != null) {
 			driver.close();
 			driver.quit();

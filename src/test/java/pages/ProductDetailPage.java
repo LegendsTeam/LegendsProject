@@ -32,7 +32,7 @@ public class ProductDetailPage {
 	@FindBy(xpath = "//*[@class='product-addto-links']/a[1]")
 	public WebElement updateWishListLink;
 	
-	@FindBy(xpath = "//*[@class='counter qty']/span")
+	@FindBy(xpath = "//*[@class='counter qty']/span[1]")
 	public WebElement itemInCart;	
 	
 	

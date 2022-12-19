@@ -21,11 +21,14 @@ public class CheckoutPage {
 	@FindBy(xpath = "//*[@class='billing-address-same-as-shipping-block field choice']/input")
 	public WebElement sameShippingAndBillingAddress;
 	
-	@FindBy(xpath = "//*[@class='action primary checkout']")
-	public WebElement clickPlaceOrder;
+	@FindBy(xpath = "//*[@class='checkout methods items checkout-methods-items']/li/button")
+	public WebElement proceedToCheeckout;
 	
 	@FindBy(xpath = "//*[@class='primary']/a")
     public WebElement continueShopping;
+	
+	@FindBy(xpath = "//*[@class='action primary checkout']")
+	public WebElement placeOrderBotton;
 	
 	@FindBy(xpath = "//*[@id=\"maincontent\"]/div[3]/div/div[2]/p[1]/a/strong")
     public WebElement comfirmationNumber;
