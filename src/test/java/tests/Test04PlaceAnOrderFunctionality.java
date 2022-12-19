@@ -1,12 +1,12 @@
 package tests;
 
-import org.testng.Assert;
+import org.testng.AssertJUnit;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import utilities.CommonMethod;
 
-public class TestPlaceAnOrderFunctionality extends CommonMethod{
+public class Test04PlaceAnOrderFunctionality extends CommonMethod{
 	
 	@BeforeMethod(onlyForGroups = "must_login")
 	public void logIn() {
@@ -25,26 +25,26 @@ public class TestPlaceAnOrderFunctionality extends CommonMethod{
 		pp.selectSizeAndColor("XS", "Black");
 		click(pp.addToCartButton);
 		Thread.sleep(3000);
-		click(hp.ViewCart);
+		click(hp.MyCart);
 		click(hp.proceedToCheckout);
 		click(cop.shippingMethod);
 		click(cop.clickNextButton);
 		click(cop.sameShippingAndBillingAddress);
-		click(cop.clickPlaceOrder);
-		Assert.assertTrue(cop.continueShopping.isEnabled());
+		click(hp.proceedToCheckout);
+		AssertJUnit.assertTrue(cop.continueShopping.isEnabled());
 	}
 
 	@Test(enabled = true, priority = 2, dependsOnMethods = "PlaceOrder")
-	public void reOrder() {
+	public void reOrder() throws InterruptedException {
 		click(cop.comfirmationNumber);
 		click(op.clickOnReorder);
-		click(hp.proceedToCheckout);
+		click(cop.proceedToCheeckout);
 		click(cop.shippingMethod);
 		click(cop.clickNextButton);
 		click(cop.sameShippingAndBillingAddress);
-		click(cop.clickPlaceOrder);
-		Assert.assertTrue(cop.continueShopping.isEnabled());
-		click(cp.homepageLink);
+		click(cop.placeOrderBotton);
+		AssertJUnit.assertTrue(cop.continueShopping.isEnabled());
+		click(cp.customerMenuToggle);
 		cp.customerMenuSelect(2);
 	}
 
@@ -54,7 +54,7 @@ public class TestPlaceAnOrderFunctionality extends CommonMethod{
 		cp.customerMenuSelect(1);
 		click(ca.myOrderButton);
 		click(op.viewOrder.get(0));
-		Assert.assertEquals("Items Ordered",op.itemOrder.getText());
+		AssertJUnit.assertEquals("Items Ordered",op.itemOrder.getText());
 	}
 
 }

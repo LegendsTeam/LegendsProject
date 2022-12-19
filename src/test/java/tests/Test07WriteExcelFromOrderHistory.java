@@ -1,6 +1,5 @@
 package tests;
 
-import org.testng.annotations.Test;
 import java.io.IOException;
 
 import org.testng.annotations.BeforeMethod;
@@ -10,8 +9,8 @@ import org.testng.annotations.Test;
 import utilities.CommonMethod;
 import utilities.ExcelUtility;
 
-@Listeners(utilities.ListenerTestNG.class)
-public class TestWriteExcelFromOrderHistory extends CommonMethod {
+@Listeners(utilities.MyListener.class)
+public class Test07WriteExcelFromOrderHistory extends CommonMethod {
 
 	@BeforeMethod(enabled = true)
 	public void logIn() {

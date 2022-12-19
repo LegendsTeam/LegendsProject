@@ -28,17 +28,17 @@ public class CommonMethod extends PageInitializer {
 		Actions act = new Actions(getDriver());
 		act.moveToElement(element).build().perform();
 	}
-	
+
 	public static void sendTextToAlert(String text) {
 		try {
 			Alert alert = getDriver().switchTo().alert();
 			alert.sendKeys(text);
-			alert.accept();		
-		}catch(NoAlertPresentException e){
-			e.printStackTrace();		
+			alert.accept();
+		} catch (NoAlertPresentException e) {
+			e.printStackTrace();
 		}
 	}
-	
+
 	public static byte[] takeScreenshot(String filename) {
 		TakesScreenshot ts = (TakesScreenshot) BaseClass.getDriver();
 		byte[] picBytes = ts.getScreenshotAs(OutputType.BYTES);
@@ -53,13 +53,13 @@ public class CommonMethod extends PageInitializer {
 		}
 		return picBytes;
 	}
-	
+
 	public static String getTimeStemp() {
 		Date date = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
+		SimpleDateFormat sdf = new SimpleDateFormat("-yyyy-MM-dd HH.mm.ss");
 		return sdf.format(date.getTime());
 	}
-	
+
 	public static WebDriverWait getWaitObject() {
 		WebDriverWait wait = new WebDriverWait(BaseClass.getDriver(), Constants.explicit_wait_time);
 		return wait;
@@ -105,7 +105,7 @@ public class CommonMethod extends PageInitializer {
 	 * This method for clicking the given element
 	 * 
 	 */
-	public static void click(WebElement element) {
+	public static void click(WebElement element)  {
 		highLightElementMethod(element);
 		waitForClickability(element).click();
 	}
@@ -233,21 +233,21 @@ public class CommonMethod extends PageInitializer {
 		}
 	}
 
-	public static WebElement waitForVisibility(WebElement element) {
+	public static WebElement waitForVisibility(WebElement element) throws Exception {
 		return getWaitObject().until(ExpectedConditions.visibilityOf(element));
 	}
 
 	// js executer
-	public static JavascriptExecutor getJSObject() {
+	public static JavascriptExecutor getJSObject() throws Exception {
 		JavascriptExecutor js = (JavascriptExecutor) BaseClass.getDriver();
 		return js;
 	}
 
-	public static void jsClick(WebElement element) {
+	public static void jsClick(WebElement element) throws Exception {
 		getJSObject().executeScript("arguments[0].click();", element);
 	}
-	
-	public static String jsGetText(WebElement element) {
+
+	public static String jsGetText(WebElement element) throws Exception {
 		return (String) getJSObject().executeScript("return arguments[0].value", element);
 	}
 
@@ -255,26 +255,42 @@ public class CommonMethod extends PageInitializer {
 	 * This method use for selecting top bar menu
 	 * 
 	 */
-	
+
 	public static void topBarSelect(String menu) {
-		for(WebElement eachElement : cp.topBarMenu) {
-			if(eachElement.getText().equalsIgnoreCase(menu)) {
+		for (WebElement eachElement : cp.topBarMenu) {
+			if (eachElement.getText().equalsIgnoreCase(menu)) {
 				eachElement.click();
 				break;
 			}
-			
+
 		}
 	}
-	
-	public static void selectItem(WebElement element,String item) {
 
-        Select sec = new Select(element);
-        sec.selectByVisibleText(item);
-    
-        
-    }
+	public static void selectItem(WebElement element, String item) {
 
- 
-	
-	
+		Select sec = new Select(element);
+		sec.selectByVisibleText(item);
+
+	}
+
+	/*
+	 * This method use for removing products from wish list by index
+	 */
+
+	public void deletingAllProductFromWishList() {
+		try {
+			click(cp.customerMenuToggle);
+			cp.customerMenuSelect(1);
+			if (mp.removeWishListIcon.size() != 0) {
+				for (int i = mp.removeWishListIcon.size() - 1; i >= 0; i--) {
+					CommonMethod.hoverOver(mp.myWishListProducts.get(i));
+					mp.removeWishListIcon.get(i).click();
+				}
+			}
+		} catch (Exception e) {
+			System.out.println("There is no product in wish list before test start");
+			e.printStackTrace();
+		}
+	}
+
 }
