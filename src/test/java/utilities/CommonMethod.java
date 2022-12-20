@@ -25,6 +25,7 @@ import com.github.javafaker.Faker;
 public class CommonMethod extends PageInitializer {
 
 	public static void hoverOver(WebElement element) {
+		highLightElementMethod(element);
 		Actions act = new Actions(getDriver());
 		act.moveToElement(element).build().perform();
 	}
@@ -105,7 +106,7 @@ public class CommonMethod extends PageInitializer {
 	 * This method for clicking the given element
 	 * 
 	 */
-	public static void click(WebElement element)  {
+	public static void click(WebElement element) {
 		highLightElementMethod(element);
 		waitForClickability(element).click();
 	}
@@ -259,7 +260,7 @@ public class CommonMethod extends PageInitializer {
 	public static void topBarSelect(String menu) {
 		for (WebElement eachElement : cp.topBarMenu) {
 			if (eachElement.getText().equalsIgnoreCase(menu)) {
-				eachElement.click();
+				click(eachElement);
 				break;
 			}
 
@@ -284,7 +285,7 @@ public class CommonMethod extends PageInitializer {
 			if (mp.removeWishListIcon.size() != 0) {
 				for (int i = mp.removeWishListIcon.size() - 1; i >= 0; i--) {
 					CommonMethod.hoverOver(mp.myWishListProducts.get(i));
-					mp.removeWishListIcon.get(i).click();
+					click(mp.removeWishListIcon.get(i));
 				}
 			}
 		} catch (Exception e) {
@@ -293,4 +294,15 @@ public class CommonMethod extends PageInitializer {
 		}
 	}
 
+	public static void signIn() {
+		hp.headerBarSelect("Sign In");
+		sendKey(lp.usernameInputField, getProperty("username"));
+		sendKey(lp.passwordInputField, getProperty("password"));
+		click(lp.loginButton);
+	}
+	
+	public static void signOut() {
+		click(cp.customerMenuToggle);
+		cp.customerMenuSelect(2);
+	}
 }

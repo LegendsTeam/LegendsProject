@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import utilities.BaseClass;
+import utilities.CommonMethod;
 
 public class ProductDetailPage {
 	
@@ -48,14 +49,14 @@ public class ProductDetailPage {
 	public void selectSizeAndColor(String size, String color) {
 		for (WebElement webElement1 : sizeAndColorList) {
 			if (webElement1.getText().equalsIgnoreCase(size)) {
-				webElement1.click();
+				CommonMethod.click(webElement1);
 				break;
 			}
 
 		}
 		for (WebElement webElement2 : sizeAndColorList) {
 			if (webElement2.getAttribute("aria-label").equalsIgnoreCase(color)) {
-				webElement2.click();
+				CommonMethod.click(webElement2);
 				break;
 			}
 		}

@@ -14,10 +14,7 @@ public class Test07WriteExcelFromOrderHistory extends CommonMethod {
 
 	@BeforeMethod(enabled = true)
 	public void logIn() {
-		hp.headerBarSelect("Sign In");
-		sendKey(lp.usernameInputField, getProperty("username"));
-		sendKey(lp.passwordInputField, getProperty("password"));
-		click(lp.loginButton);
+		signIn();
 	}
 
 	@Test(enabled = true, priority = 1, retryAnalyzer = utilities.RetryAnalyzer.class)

@@ -7,17 +7,9 @@ import utilities.CommonMethod;
 
 public class Test05CartFunctionality extends CommonMethod {
 
-	public void logIn() {
-		hp.headerBarSelect("Sign In");
-		sendKey(lp.usernameInputField, getProperty("username"));
-		sendKey(lp.passwordInputField, getProperty("password"));
-		click(lp.loginButton);
-
-	}
-
 	@Test(enabled = true, priority = 1, groups = "AddToCart")
 	public void AddToCart() {
-		logIn();
+		signIn();
 		click(hp.homePageProduct.get(0));
 		int itemIncartBefore = 0;
 		pp.selectSizeAndColor("XS", "Blue");
@@ -48,7 +40,6 @@ public class Test05CartFunctionality extends CommonMethod {
 		click(hp.viewCart);
 		click(hp.removeFromCart);
 		AssertJUnit.assertTrue(hp.emptyCartText.getText().contains("no items"));
-
 	}
 
 }

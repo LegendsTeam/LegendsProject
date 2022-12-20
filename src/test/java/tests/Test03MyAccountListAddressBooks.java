@@ -12,13 +12,8 @@ import utilities.CommonMethod;
 public class Test03MyAccountListAddressBooks extends CommonMethod {
 
 	@BeforeMethod(enabled = true)
-	public void Signin() {
-
-		hp.headerBarSelect("Sign In");
-		sendKey(ca.Email, getProperty("username"));
-		sendKey(ca.Password, getProperty("password"));
-		click(ca.signinbutton);
-
+	public void logIn() {
+		signIn();
 	}
 
 	@Test(enabled = true, priority = 1)
@@ -107,8 +102,6 @@ public class Test03MyAccountListAddressBooks extends CommonMethod {
 
 	@AfterMethod(enabled = true)
 	public void signoutTest() {
-
-		click(ca.CustomerNameArow);
-		click(ca.signoutButton);
+		signOut();	
 	}
 }

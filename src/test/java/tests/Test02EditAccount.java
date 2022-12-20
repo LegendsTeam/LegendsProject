@@ -1,24 +1,20 @@
 package tests;
 
 import org.testng.AssertJUnit;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import utilities.CommonMethod;
 
 public class Test02EditAccount extends CommonMethod {
 
+	@BeforeMethod
 	public void logIn() {
-		hp.headerBarSelect("Sign In");
-		sendKey(lp.usernameInputField, getProperty("username"));
-		sendKey(lp.passwordInputField, getProperty("password"));
-		click(lp.loginButton);
-
+		signIn();
 	}
 
 	@Test(enabled = true, priority = 1)
 	public void EditAccontPage() {
-		logIn();
-		// topBarSelect("SwichButton");
 		click(cp.customerMenuToggle);
 		cp.customerMenuSelect(0);
 		click(ep.editButton);
@@ -34,8 +30,6 @@ public class Test02EditAccount extends CommonMethod {
 
 	@Test(enabled = true, priority = 2)
 	public void ChangeEmail() {
-		logIn();
-//        topBarSelect("SwichButton");
 		click(cp.customerMenuToggle);
 		cp.customerMenuSelect(0);
 		click(ep.editButton);
@@ -52,8 +46,6 @@ public class Test02EditAccount extends CommonMethod {
 
 	@Test(enabled = true, priority = 3)
 	public void ChangePassword() {
-		logIn();
-//        topBarSelect("SwichButton");
 		click(cp.customerMenuToggle);
 		cp.customerMenuSelect(0);
 		click(ep.editButton);
