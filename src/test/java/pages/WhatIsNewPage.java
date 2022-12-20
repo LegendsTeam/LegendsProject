@@ -29,7 +29,7 @@ public class WhatIsNewPage {
 	 */
 	public void addToWishListByHoverOver(int productIndex) {
 		CommonMethod.hoverOver(productList.get(productIndex));
-		listOfWishListIcon.get(productIndex).click();
+		CommonMethod.click(listOfWishListIcon.get(productIndex));
 
 	}
 

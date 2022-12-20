@@ -10,10 +10,7 @@ public class Test04PlaceAnOrderFunctionality extends CommonMethod{
 	
 	@BeforeMethod(onlyForGroups = "must_login")
 	public void logIn() {
-		hp.headerBarSelect("Sign In");
-		sendKey(lp.usernameInputField, getProperty("username"));
-		sendKey(lp.passwordInputField, getProperty("password"));
-		click(lp.loginButton);
+		signIn();
 	}
 
 	@Test(enabled = true, priority = 1, groups = "must_login")
@@ -44,8 +41,7 @@ public class Test04PlaceAnOrderFunctionality extends CommonMethod{
 		click(cop.sameShippingAndBillingAddress);
 		click(cop.placeOrderBotton);
 		AssertJUnit.assertTrue(cop.continueShopping.isEnabled());
-		click(cp.customerMenuToggle);
-		cp.customerMenuSelect(2);
+		signOut();
 	}
 
 	@Test(enabled = true, priority = 3, groups = "must_login")

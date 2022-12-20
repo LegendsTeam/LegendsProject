@@ -13,13 +13,10 @@ public class Test06AddToWishListFunctionality extends CommonMethod {
 
 	@BeforeMethod(enabled = true, onlyForGroups = "mustLogin")
 	public void logIn() {
-		hp.headerBarSelect("Sign In");
-		sendKey(lp.usernameInputField, getProperty("username"));
-		sendKey(lp.passwordInputField, getProperty("password"));
-		click(lp.loginButton);
+		signIn();
 	}
 	
-	@Test(enabled = true, priority = -1, groups = "noLogin")//, retryAnalyzer = utilities.RetryAnalyzer.class)
+	@Test(enabled = true, priority = -1, groups = "noLogin", retryAnalyzer = utilities.RetryAnalyzer.class)
 	public void addToWishListBeforeSuccessfullyLogIn() {
 		topBarSelect("What's New");
 		click(wp.productList.get(0));
@@ -83,8 +80,7 @@ public class Test06AddToWishListFunctionality extends CommonMethod {
 	
 	@AfterMethod(enabled = true, onlyForGroups = "mustLogin")
 	public void logOut() {
-		click(cp.customerMenuToggle);
-		cp.customerMenuSelect(2);
+		signOut();
 	}
 
 }

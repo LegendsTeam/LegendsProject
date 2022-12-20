@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import utilities.BaseClass;
+import utilities.CommonMethod;
 
 public class HomePage {
 
@@ -41,10 +42,14 @@ public class HomePage {
 	@FindBy(xpath = "//*[@class='action primary checkout']")
 	public WebElement proceedToCheckout;
 	
+	
+	/*
+	 * This method use for clicking top bar menu
+	 */
 	public void headerBarSelect(String menu) {
 		for(WebElement eachElement : headerMenu) {
 			if(eachElement.getText().trim().equalsIgnoreCase(menu)) {
-				eachElement.click();
+				CommonMethod.click(eachElement);
 				break;
 			}		
 		}
