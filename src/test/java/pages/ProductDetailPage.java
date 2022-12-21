@@ -62,5 +62,16 @@ public class ProductDetailPage {
 		}
 
 	}
+	
+	public int getItemInCart() {
+        int    itemIncartBefore = 0;
+        try {
+        itemIncartBefore= Integer.parseInt(itemInCart.getText());        
+        } catch (Exception e) {
+            
+        }
+        return itemIncartBefore;
+        
+    }
 
 }
