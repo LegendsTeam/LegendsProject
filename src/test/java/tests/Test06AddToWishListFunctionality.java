@@ -1,6 +1,6 @@
 package tests;
 
-import org.testng.AssertJUnit;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
@@ -18,11 +18,11 @@ public class Test06AddToWishListFunctionality extends CommonMethod {
 	
 	@Test(enabled = true, priority = -1, groups = "noLogin", retryAnalyzer = utilities.RetryAnalyzer.class)
 	public void addToWishListBeforeSuccessfullyLogIn() {
-		topBarSelect("What's New");
+		topBarSelect(getProperty("menu"));
 		click(wp.productList.get(0));
 		click(pp.addToWishListLink);
-		String expectErrorMessage = "You must login or register to add items to your wishlist.";
-		AssertJUnit.assertEquals(lp.errorMessages.getText(), expectErrorMessage);
+		String expectErrorMessage = getProperty("expectErrorMessage");
+		Assert.assertEquals(lp.errorMessages.getText(), expectErrorMessage);
 
 	}
 
@@ -33,18 +33,18 @@ public class Test06AddToWishListFunctionality extends CommonMethod {
 		click(cp.customerMenuToggle);
 		cp.customerMenuSelect(1);
 		int numOfProductInWishList = mp.getNumberOfProductsInWishList();
-		topBarSelect("What's New");
+		topBarSelect(getProperty("menu"));
 		click(wp.productList.get(0));
 		click(pp.addToWishListLink);
-		AssertJUnit.assertEquals(mp.getNumberOfProductsInWishList(), numOfProductInWishList + 1);
+		Assert.assertEquals(mp.getNumberOfProductsInWishList(), numOfProductInWishList + 1);
 	}
 	
 	@Test(enabled = true, priority = 2, groups = "mustLogin", retryAnalyzer = utilities.RetryAnalyzer.class)
 	public void deleteWishList() {
 		deletingAllProductFromWishList();
-		String expectedText = "You have no items in your wish list.";
+		String expectedText = getProperty("expectedText") ;
 		String actualText = mp.emptyWishListMessage.getText();
-		AssertJUnit.assertEquals(actualText, expectedText);
+		Assert.assertEquals(actualText, expectedText);
 	}
 	
 	@Test(enabled = true, priority = 3, groups = "mustLogin", retryAnalyzer = utilities.RetryAnalyzer.class)
@@ -52,20 +52,20 @@ public class Test06AddToWishListFunctionality extends CommonMethod {
 		click(cp.customerMenuToggle);
 		cp.customerMenuSelect(1);
 		int numOfProductInWishList = mp.getNumberOfProductsInWishList();
-		topBarSelect("What's New");
+		topBarSelect(getProperty("menu"));
 		wp.addToWishListByHoverOver(2);
-		AssertJUnit.assertEquals(mp.getNumberOfProductsInWishList(), numOfProductInWishList + 1);
+		Assert.assertEquals(mp.getNumberOfProductsInWishList(), numOfProductInWishList + 1);
 	}
 	
 	@Test(enabled = true, priority = 4, groups = "mustLogin", retryAnalyzer = utilities.RetryAnalyzer.class)
 	public void addMoreThanOneToWishListByHoverProduct() {
 		deletingAllProductFromWishList();
-		topBarSelect("What's New");
+		topBarSelect(getProperty("menu"));
 		int numOfProduct = 3;
 		wp.addingNProductstoWishList(numOfProduct);
 		click(cp.customerMenuToggle);
 		cp.customerMenuSelect(1);
-		AssertJUnit.assertEquals(mp.getNumberOfProductsInWishList(), numOfProduct);
+		Assert.assertEquals(mp.getNumberOfProductsInWishList(), numOfProduct);
 	}
 	
 	@Test(enabled = true, priority = 5, groups = "mustLogin", retryAnalyzer = utilities.RetryAnalyzer.class)
@@ -73,9 +73,9 @@ public class Test06AddToWishListFunctionality extends CommonMethod {
 		click(cp.customerMenuToggle);
 		cp.customerMenuSelect(1);
 		mp.editingWistList(0);
-		pp.selectSizeAndColor("XS", "White");
+		pp.selectSizeAndColor(getProperty("size"), getProperty("color"));
 		click(pp.updateWishListLink);
-		AssertJUnit.assertTrue(mp.successMessage.getText().contains("has been updated in your Wish List"));
+		Assert.assertTrue(mp.successMessage.getText().contains(getProperty("successMessage")));
 	}
 	
 	@AfterMethod(enabled = true, onlyForGroups = "mustLogin")

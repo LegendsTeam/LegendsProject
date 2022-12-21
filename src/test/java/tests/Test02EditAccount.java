@@ -1,6 +1,6 @@
 package tests;
 
-import org.testng.AssertJUnit;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -21,7 +21,7 @@ public class Test02EditAccount extends CommonMethod {
 		sendKey(ep.firstName, getProperty("firstName"));
 		sendKey(ep.lastName, getProperty("lastName"));
 		click(ep.saveButton);
-		AssertJUnit.assertEquals("You saved the account information.", ep.passMessage.getText());
+		Assert.assertEquals("You saved the account information.", ep.passMessage.getText());
 		System.out.println(ep.passMessage.getText());
 		click(cp.customerMenuToggle);
 		cp.customerMenuSelect(2);
@@ -39,7 +39,7 @@ public class Test02EditAccount extends CommonMethod {
 		sendKey(ep.firstName, getProperty("firstName"));
 		sendKey(ep.lastName, getProperty("lastName"));
 		click(ep.saveButton);
-		AssertJUnit.assertEquals("You saved the account information.", ep.passMessage.getText());
+		Assert.assertEquals("You saved the account information.", ep.passMessage.getText());
 		System.out.println(ep.passMessage.getText());
 
 	}
@@ -54,7 +54,7 @@ public class Test02EditAccount extends CommonMethod {
 		sendKey(ep.newPassword, getProperty("password"));
 		sendKey(ep.conFirmnewPassword, getProperty("password"));
 		click(ep.saveButton);
-		AssertJUnit.assertEquals("You saved the account information.", ep.passMessage.getText());
+		Assert.assertEquals("You saved the account information.", ep.passMessage.getText());
 		System.out.println(ep.passMessage.getText());
 
 	}

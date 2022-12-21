@@ -1,6 +1,6 @@
 package tests;
 
-import org.testng.AssertJUnit;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -18,7 +18,7 @@ public class Test04PlaceAnOrderFunctionality extends CommonMethod{
 		hoverOver(cp.topMenu.get(2));
 		hoverOver(cp.menTopMenu);
 		click(mpp.menJackets);
-		click(mpp.montanaWindJacket.get(0));
+		click(mpp.productList.get(0));
 		pp.selectSizeAndColor("XS", "Black");
 		click(pp.addToCartButton);
 		Thread.sleep(3000);
@@ -28,7 +28,7 @@ public class Test04PlaceAnOrderFunctionality extends CommonMethod{
 		click(cop.clickNextButton);
 		click(cop.sameShippingAndBillingAddress);
 		click(hp.proceedToCheckout);
-		AssertJUnit.assertTrue(cop.continueShopping.isEnabled());
+		Assert.assertTrue(cop.continueShopping.isEnabled());
 	}
 
 	@Test(enabled = true, priority = 2, dependsOnMethods = "PlaceOrder")
@@ -40,7 +40,7 @@ public class Test04PlaceAnOrderFunctionality extends CommonMethod{
 		click(cop.clickNextButton);
 		click(cop.sameShippingAndBillingAddress);
 		click(cop.placeOrderBotton);
-		AssertJUnit.assertTrue(cop.continueShopping.isEnabled());
+		Assert.assertTrue(cop.continueShopping.isEnabled());
 		signOut();
 	}
 
@@ -50,7 +50,7 @@ public class Test04PlaceAnOrderFunctionality extends CommonMethod{
 		cp.customerMenuSelect(1);
 		click(ca.myOrderButton);
 		click(op.viewOrder.get(0));
-		AssertJUnit.assertEquals("Items Ordered",op.itemOrder.getText());
+		Assert.assertEquals("Items Ordered",op.itemOrder.getText());
 	}
 
 }

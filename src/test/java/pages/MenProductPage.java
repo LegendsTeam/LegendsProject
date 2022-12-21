@@ -18,5 +18,7 @@ public class MenProductPage {
 	public WebElement menJackets;
 	
 	@FindBy(xpath = "//*[@class='products list items product-items']/li")
-	public List<WebElement> montanaWindJacket;
+	public List<WebElement> productList;
+
+
 }

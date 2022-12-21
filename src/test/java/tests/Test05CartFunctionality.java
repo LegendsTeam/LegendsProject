@@ -1,6 +1,6 @@
 package tests;
 
-import org.testng.AssertJUnit;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import utilities.CommonMethod;
@@ -15,7 +15,7 @@ public class Test05CartFunctionality extends CommonMethod {
 		pp.selectSizeAndColor("XS", "Blue");
 		click(hp.addToCart);
 		int itemIncartAfter = Integer.parseInt(pp.itemInCart.getText());
-		AssertJUnit.assertEquals(itemIncartAfter, itemIncartBefore + 1);
+		Assert.assertEquals(itemIncartAfter, itemIncartBefore + 1);
 	}
 
 	@Test(enabled = true, priority = 2, groups = "AddToCart")
@@ -25,7 +25,7 @@ public class Test05CartFunctionality extends CommonMethod {
 		sendKey(hp.changeQuantity, getProperty("number"));
 		click(hp.addToCart);
 		int itemIncartAfter = Integer.parseInt(pp.itemInCart.getText());
-		AssertJUnit.assertEquals(itemIncartAfter, itemIncartBefore + Integer.parseInt(getProperty("number")));
+		Assert.assertEquals(itemIncartAfter, itemIncartBefore + Integer.parseInt(getProperty("number")));
 
 	}
 
@@ -34,7 +34,7 @@ public class Test05CartFunctionality extends CommonMethod {
 		click(hp.MyCart);
 		click(hp.viewCart);
 		click(hp.removeFromCart);
-		AssertJUnit.assertTrue(hp.emptyCartText.getText().contains("no items"));
+		Assert.assertTrue(hp.emptyCartText.getText().contains("no items"));
 	}
 
 }
