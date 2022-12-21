@@ -24,7 +24,7 @@ public class EditAccountPage {
 	@FindBy(xpath = "//*[@data-action='customer-menu-toggle']")
 	public WebElement switchButton;
 
-	@FindBy(xpath = "(//a[@class='action edit'])[1]")
+	@FindBy(xpath = "//*[@class='box box-information']/div[2]/a[1]")
 	public WebElement editButton;
 
 	@FindBy(xpath = "//*[@id='firstname']")
