@@ -131,7 +131,7 @@ public class ExcelUtility {
 		// .xlsx is the format for Excel Sheets...
 		// writing the workbook into the file...
 		
-		FileOutputStream out = new FileOutputStream(new File(Constants.excelFilePath+ fileName + CommonMethod.getTimeStemp() +".xlsx"));
+		FileOutputStream out = new FileOutputStream(new File("src/test/resources/excelFiles/"+ fileName + CommonMethod.getTimeStemp() +".xlsx"));
 
 		workbook.write(out);
 		out.close();

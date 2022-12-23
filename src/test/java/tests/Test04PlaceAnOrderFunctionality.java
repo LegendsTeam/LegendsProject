@@ -19,7 +19,7 @@ public class Test04PlaceAnOrderFunctionality extends CommonMethod{
 		hoverOver(cp.menTopMenu);
 		click(mpp.menJackets);
 		click(mpp.productList.get(0));
-		pp.selectSizeAndColor("XS", "Black");
+		pp.selectSizeAndColor(getProperty("size"), getProperty("color2"));
 		click(pp.addToCartButton);
 		Thread.sleep(3000);
 		click(hp.MyCart);
