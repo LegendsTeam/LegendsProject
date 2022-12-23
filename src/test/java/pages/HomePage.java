@@ -21,11 +21,7 @@ public class HomePage {
 	@FindBy(xpath = "//*[@class='product-items widget-product-grid']/li")
 	public List<WebElement> homePageProduct;
 	
-	@FindBy(id = "product-addtocart-button")
-	public WebElement addToCart;
 	
-	@FindBy(xpath = "//*[@id='qty']")
-	public WebElement changeQuantity;
 	
 	@FindBy(xpath = "//*[@class='action showcart']")
 	public WebElement MyCart;

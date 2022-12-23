@@ -4,34 +4,35 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import utilities.CommonMethod;
 
+@Listeners(utilities.MyListener.class)
 public class Test03MyAccountListAddressBooks extends CommonMethod {
 
 	@BeforeMethod(enabled = true)
 	public void logIn() {
 		signIn();
+		click(ca.CustomerNameArow);
+		click(ca.MyAccount);
+		click(ca.AddressBook);
 	}
 
 	@Test(enabled = true, priority = 1)
 	public void ChangeBillingAddress() {
 
-		click(ca.CustomerNameArow);
-		click(ca.MyAccount);
-		click(ca.AddressBook);
-
 		click(cb.ChangeBillingAddress);
 		sendKey(cb.FirstName, getProperty("firstName"));
 		sendKey(cb.LastName, getProperty("lastName"));
 		sendKey(cb.Company, getProperty("company"));
-		sendKey(cb.PhoneNumber, getProperty("Phone"));
-		sendKey(cb.StreetAddress1, getProperty("StreetAddress1"));
-		sendKey(cb.City, getProperty("City"));
-		selectItem(cb.Countrys, "United States");
-		selectItem(cb.States, "Virginia");
-		sendKey(cb.ZipCode, getProperty("ZipCode"));
+		sendKey(cb.PhoneNumber, getProperty("phone"));
+		sendKey(cb.StreetAddress1, getProperty("streetAddress1"));
+		sendKey(cb.City, getProperty("city"));
+		selectItem(cb.Countrys, getProperty("country"));
+		selectItem(cb.States, getProperty("state"));
+		sendKey(cb.ZipCode, getProperty("zipCode"));
 		click(cb.SaveAddress);
 
 		String expectedmessage = getProperty("expectedMessage");
@@ -44,15 +45,8 @@ public class Test03MyAccountListAddressBooks extends CommonMethod {
 	@Test(enabled = true, priority = 2)
 	public void DefultBillingAndShippingAddress() {
 
-//		 wait(0.1);
-		click(ca.CustomerNameArow);
-		click(ca.MyAccount);
-		click(ca.AddressBook);
-		wait(0.1);
 		highLightElementMethod(cb.DefaultBillingAdress);
-		wait(0.1);
 		highLightElementMethod(cb.DefaultShippingAddress);
-		wait(0.1);
 		String Billing = cb.DefaultBillingAdress.getText();
 		String Shipping = cb.DefaultShippingAddress.getText();
 		System.out.println(Billing + Shipping);
@@ -63,25 +57,20 @@ public class Test03MyAccountListAddressBooks extends CommonMethod {
 	@Test(enabled = true, priority = 3)
 	public void AddNewAddress() {
 
-		wait(0.1);
-		click(ca.CustomerNameArow);
-		click(ca.MyAccount);
-		click(ca.AddressBook);
 		cb.Address.click();
-		wait(0.1);
-		sendKey(cb.newFirstName, getProperty("newfirstName"));
-		sendKey(cb.newLastName, getProperty("newlastName"));
-		sendKey(cb.newCompany, getProperty("newcompany"));
+		sendKey(cb.newFirstName, getProperty("newFirstName"));
+		sendKey(cb.newLastName, getProperty("newLastName"));
+		sendKey(cb.newCompany, getProperty("newCompany"));
 		sendKey(cb.newPhoneNumber, getProperty("newPhone"));
 		sendKey(cb.newStreetAddress1, getProperty("newStreetAddress1"));
 		sendKey(cb.newCity, getProperty("newCity"));
-		selectItem(cb.newCountrys, "United States");
-		selectItem(cb.newStates, "Virginia");
-		sendKey(cb.newZipCode, getProperty("ZipCode"));
+		selectItem(cb.newCountrys, getProperty("newCountry"));
+		selectItem(cb.newStates, getProperty("newState"));
+		sendKey(cb.newZipCode, getProperty("zipCode"));
 		WebElement box = cb.billingCheckBox;
 		box.click();
 		click(cb.SaveAddress);
-		wait(0.1);
+
 		highLightElementMethod(cb.SaveMessage);
 		String newexpectedmessage = getProperty("expectedMessage");
 		String newactualmessage = cb.SaveMessage.getText();
@@ -101,6 +90,6 @@ public class Test03MyAccountListAddressBooks extends CommonMethod {
 
 	@AfterMethod(enabled = true)
 	public void signoutTest() {
-		signOut();	
+		signOut();
 	}
 }

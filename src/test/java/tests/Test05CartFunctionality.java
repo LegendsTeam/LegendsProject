@@ -12,29 +12,30 @@ public class Test05CartFunctionality extends CommonMethod {
 		signIn();
 		int itemIncartBefore = pp.getItemInCart();;
 		click(hp.homePageProduct.get(0));
-		pp.selectSizeAndColor("XS", "Blue");
-		click(hp.addToCart);
+		pp.selectSizeAndColor(getProperty("size"), getProperty("color1"));
+		click(pp.addToCart);
 		int itemIncartAfter = Integer.parseInt(pp.itemInCart.getText());
 		Assert.assertEquals(itemIncartAfter, itemIncartBefore + 1);
 	}
 
-	@Test(enabled = true, priority = 2, groups = "AddToCart")
+	@Test(enabled = true, priority = 2, groups = "AddToCart", dependsOnMethods = "AddToCart")
 	public void ChangeQuantity() {
 
 		int itemIncartBefore = Integer.parseInt(pp.itemInCart.getText());
-		sendKey(hp.changeQuantity, getProperty("number"));
-		click(hp.addToCart);
+		sendKey(pp.changeQuantity, getProperty("number"));
+		click(pp.addToCart);
 		int itemIncartAfter = Integer.parseInt(pp.itemInCart.getText());
 		Assert.assertEquals(itemIncartAfter, itemIncartBefore + Integer.parseInt(getProperty("number")));
 
 	}
 
-	@Test(enabled = true, priority = 3, groups = "AddToCart")
+	@Test(enabled = true, priority = 3, groups = "AddToCart", dependsOnMethods = "ChangeQuantity")
 	public void RemoveFromCart() {
 		click(hp.MyCart);
 		click(hp.viewCart);
 		click(hp.removeFromCart);
 		Assert.assertTrue(hp.emptyCartText.getText().contains("no items"));
+		signOut();
 	}
 
 }

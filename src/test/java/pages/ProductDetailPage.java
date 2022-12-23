@@ -34,7 +34,13 @@ public class ProductDetailPage {
 	public WebElement updateWishListLink;
 	
 	@FindBy(xpath = "//*[@class='counter qty']/span[1]")
-	public WebElement itemInCart;	
+	public WebElement itemInCart;
+	
+	@FindBy(id = "product-addtocart-button")
+	public WebElement addToCart;
+	
+	@FindBy(xpath = "//*[@id='qty']")
+	public WebElement changeQuantity;
 	
 	
 	

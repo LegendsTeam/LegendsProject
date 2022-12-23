@@ -268,7 +268,6 @@ public class CommonMethod extends PageInitializer {
 	}
 
 	public static void selectItem(WebElement element, String item) {
-
 		Select sec = new Select(element);
 		sec.selectByVisibleText(item);
 
