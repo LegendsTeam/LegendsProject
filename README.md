@@ -10,7 +10,7 @@ https://magento.softwaretestingboard.com
 
 4. Develope test scripts and performed manual and UI and functional testing.
 
-5 Use Github as version control and perform code review and resolve any conflicts on shared repository for my team.
+5. Use Github as version control and perform code review and resolve any conflicts on shared repository for my team.
 
 6. Create testing.xml to group and run specific tests.
 
